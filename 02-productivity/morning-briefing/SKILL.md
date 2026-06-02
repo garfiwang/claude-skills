@@ -45,15 +45,21 @@ user-invocable: true
 
 ### 步驟 4：產生互動式 HTML 並存檔
 
-將以上資料整合，產生一份**完整的自含式 HTML 檔案**，並使用 `mcp__filesystem__write_file` 工具存至：
+將以上資料整合，產生一份**完整的自含式 HTML 檔案**，使用 Bash 存至以下路徑：
 
-```
-/Users/garfiwang/Documents/晨間早報/YYYY-MM-DD.html
+**輸出路徑由環境變數控制：**
+- 優先讀取 `MORNING_BRIEFING_DIR` 環境變數
+- 未設定則預設使用 `$HOME/晨間早報/`
+
+```bash
+OUTPUT_DIR="${MORNING_BRIEFING_DIR:-$HOME/晨間早報}"
+mkdir -p "$OUTPUT_DIR"
+# 寫入 HTML 後輸出確認訊息
 ```
 
 （YYYY-MM-DD 替換為今天實際日期，例如 `2026-06-02.html`）
 
-存檔完成後，在對話中回報：「✅ 早晨日報已存至 `/Users/garfiwang/Documents/晨間早報/YYYY-MM-DD.html`」
+存檔完成後，在對話中回報：「✅ 早晨日報已存至 `$OUTPUT_DIR/YYYY-MM-DD.html`」
 
 ---
 
@@ -317,7 +323,7 @@ user-invocable: true
 
 </main>
 
-<footer>早安，Rich！今天也是充滿可能性的一天。</footer>
+<footer>早安！今天也是充滿可能性的一天。</footer>
 
 <script>
   const STORAGE_KEY = 'morning-todos-{YYYY-MM-DD}';
