@@ -20,7 +20,7 @@
 
 | Skill | 說明 | 觸發關鍵字 |
 |---|---|---|
-| [morning-briefing](02-productivity/morning-briefing/SKILL.md) | 早晨日報：查 Gmail + Calendar + Notion，產出今日重點 | morning、/morning |
+| [morning-briefing](02-productivity/morning-briefing/SKILL.md) | 早晨日報：查 Gmail + Calendar + Notion，產出互動式 HTML 日報並存檔 | morning、/morning |
 | [sync-inspiration](02-productivity/sync-inspiration/SKILL.md) | 同步靈感盒 Clippings 到 Notion | 同步靈感盒、sync 靈感盒 |
 | [weekly-schedule-report](02-productivity/weekly-schedule-report/SKILL.md) | 每週一自動產生本週優先任務報告，發送至 Email | 週報、weekly report |
 
@@ -51,6 +51,25 @@ claude skills add garfiwang/claude-skills --path 01-content-creation/storytellin
 ```
 
 或直接複製 `SKILL.md` 到你的 Claude Code 工作目錄下使用。
+
+---
+
+## ⚙️ 技能設定
+
+部分技能支援環境變數設定，加入 `~/.zshrc` 或 `~/.bashrc` 後執行 `source ~/.zshrc` 生效。
+
+### morning-briefing（早晨日報）
+
+| 環境變數 | 說明 | 預設值 |
+|---|---|---|
+| `MORNING_BRIEFING_DIR` | HTML 日報的存檔資料夾路徑 | `~/晨間早報/` |
+
+```bash
+# 範例：自訂存檔路徑
+export MORNING_BRIEFING_DIR="$HOME/Documents/morning-reports"
+```
+
+> **前置需求**：需安裝並連接 [Google Calendar MCP](https://github.com/nspady/google-calendar-mcp)、[Gmail MCP](https://github.com/gongrzhe/gmail-mcp-server)、[Notion MCP](https://developers.notion.com/docs/mcp) 三個 MCP 工具，技能才能正常查詢資料。
 
 ---
 
