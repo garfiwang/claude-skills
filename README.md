@@ -15,6 +15,7 @@
 | [storytelling-7steps](01-content-creation/storytelling-7steps/SKILL.md) | 故事創作七步法，適用講座開場、社群故事、課程設計 | 七步法、寫故事、強化故事 |
 | [fb-long-post](01-content-creation/fb-long-post/SKILL.md) | 高流量 FB 長文，信託/保險/退休規劃主題 | 寫 FB 長文、FB 文章 |
 | [threads-post](01-content-creation/threads-post/SKILL.md) | Threads 每日短文，品牌聲量維持 | 寫 Threads、今日 Threads |
+| [image-prompt-wizard](01-content-creation/image-prompt-wizard/README.md) | AI 繪圖 Prompt 生成嚮導，三種模式輸出結構化英文 Prompt ＋ 中文說明 | 圖片提示詞、image prompt、生成圖片 Prompt |
 
 ### ⚡ 02 · 生產力自動化
 
@@ -46,7 +47,10 @@
 在 Claude Code 中執行：
 
 ```bash
-# 安裝單一 skill（以 storytelling-7steps 為例）
+# 安裝單一 skill（以 image-prompt-wizard 為例）
+claude skills add garfiwang/claude-skills --path 01-content-creation/image-prompt-wizard
+
+# 安裝其他 skill（以 storytelling-7steps 為例）
 claude skills add garfiwang/claude-skills --path 01-content-creation/storytelling-7steps
 ```
 
@@ -84,4 +88,4 @@ export MORNING_BRIEFING_DIR="$HOME/Documents/morning-reports"
 
 ---
 
-*Last updated: 2026-06-02*
+*Last updated: 2026-06-08*
