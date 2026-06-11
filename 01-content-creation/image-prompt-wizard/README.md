@@ -1,6 +1,6 @@
 # 🎨 Image Prompt Wizard｜AI 圖片 Prompt 生成嚮導
 
-> 適用平台：Midjourney、DALL-E 3、Stable Diffusion、Firefly、Leonardo AI
+> 版本：v1.0.0｜適用平台：Midjourney、DALL-E 3、Stable Diffusion、Firefly、Leonardo AI
 
 透過對話引導，幫你產出高品質的 AI 繪圖英文 Prompt，無需任何繪圖專業知識。
 
@@ -116,4 +116,10 @@ photorealistic, DSLR quality, sharp focus, 8K resolution --ar 16:9
 
 ---
 
-*Last updated: 2026-06-08*
+## Changelog
+
+| 版本 | 日期 | 說明 |
+|---|---|---|
+| v1.0.0 | 2026-06-12 | 初始版本：三種模式（快速/深度/一句話生圖），8 層 Prompt 結構，雙語輸出 |
+
+*Last updated: 2026-06-12*
