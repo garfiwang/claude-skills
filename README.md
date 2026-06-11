@@ -77,6 +77,37 @@ export MORNING_BRIEFING_DIR="$HOME/Documents/morning-reports"
 
 ---
 
+## 🔖 版本管理規則
+
+每個 Skill 的版本資訊寫在自己的 `SKILL.md` 最上方 frontmatter，方便追蹤升級次數與內容。範例：
+
+```yaml
+---
+name: morning
+version: 1.1.0          # ← 目前版本
+description: ...
+changelog:              # ← 由新到舊，每次升級加一筆
+  - version: 1.1.0
+    date: 2026-06-12
+    note: 這次改了什麼（一句話）
+  - version: 1.0.0
+    date: 2026-06-11
+    note: 初始版本
+---
+```
+
+**版號規則（語意化版本 SemVer：主版號.次版號.修訂號）：**
+
+| 改動類型 | 版號變化 | 範例 |
+|---|---|---|
+| 修錯字、調小設定、不影響行為 | 修訂號 +1 | 1.1.0 → 1.1.**1** |
+| 新增功能、向下相容 | 次版號 +1，修訂號歸 0 | 1.1.0 → 1.**2**.0 |
+| 大改架構、不相容、需重新設定 | 主版號 +1，其餘歸 0 | 1.1.0 → **2**.0.0 |
+
+**維護流程：** 改 `SKILL.md` 內容 → 更新 frontmatter 的 `version` 並在 `changelog` 最上方加一筆 → commit 推上來。看 `changelog` 筆數就知道升級過幾次。
+
+---
+
 ## 關於作者
 
 **Rich Wang**｜問大師家族辦公室 創辦人暨執行長
@@ -88,4 +119,4 @@ export MORNING_BRIEFING_DIR="$HOME/Documents/morning-reports"
 
 ---
 
-*Last updated: 2026-06-08*
+*Last updated: 2026-06-12*
