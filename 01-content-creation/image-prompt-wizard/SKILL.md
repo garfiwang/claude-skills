@@ -1,6 +1,12 @@
 ---
 name: image-prompt-wizard
+version: 1.0.0
 description: AI 圖片 Prompt 生成嚮導。當使用者說「啟動圖片提示詞」、「啟動 Prompt 生成器」、「幫我生成圖片 Prompt」、「生成圖片提示詞」、「圖片提示詞」、「image prompt」，或任何想要生成 AI 繪圖咒語的情境，一律使用此技能。技能會透過一系列引導問句（快速模式 3～4 題 / 深度模式 6～8 題），幫使用者確認圖片用途、風格、構圖、色調等關鍵要素，最終輸出可直接使用的英文 Prompt ＋ 中文說明。
+user-invocable: true
+changelog:
+  - version: 1.0.0
+    date: 2026-06-12
+    note: 初始版本。三種模式（快速/深度/一句話生圖），8 層 Prompt 結構，雙語輸出（英文 Prompt＋中文說明），通用格式相容 Midjourney、DALL-E、Stable Diffusion 等主流平台。
 ---
 
 # 🎨 圖片 Prompt 生成嚮導
