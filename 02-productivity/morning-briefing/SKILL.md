@@ -1,7 +1,15 @@
 ---
 name: morning
+version: 1.1.0
 description: 早晨日報技能。查詢 Gmail、Google Calendar、Notion，產出昨日工作回顧＋今日重要任務的早晨日報，輸出為互動式 HTML 網頁並存檔。觸發條件：使用者輸入 morning 或 /morning。
 user-invocable: true
+changelog:
+  - version: 1.1.0
+    date: 2026-06-12
+    note: 字級放大易讀（根 18px、行高 1.7）；任務抓取範圍改為昨天/今天/明天，並串接 Notion「[晨報] 三日任務」篩選檢視；新增日報結尾「今日金句」（每天從名人金句庫隨機抽一句）。
+  - version: 1.0.0
+    date: 2026-06-11
+    note: 初始版本：查 Gmail/Calendar/Notion，產出 Bento 風格互動式 HTML 日報並存檔。
 ---
 
 當使用者輸入 `morning` 或 `/morning` 時，執行以下步驟，產出一份早晨日報：
@@ -28,20 +36,35 @@ user-invocable: true
 
 使用 Notion MCP 工具（`notion-search` 或 `notion-query-database-view`）：
 
-**3a. 昨日完成的任務**
-- 查詢 `[G] Tasks Database`
-- 條件：Done = YES，且完成日期 = 昨天
-- 若 Notion 不支援日期篩選，改用搜尋近期 Done = YES 的任務（取最新 10 筆）
+**任務抓取範圍（重要）：** `[G] Tasks Database` **只顯示「到期日（Due Date）」落在「昨天、今天、明天」這三天內的任務**，三天以外（含更早逾期、更晚未到期）一律不顯示。
 
-**3b. 今日待辦任務**
-- 查詢 `[G] Tasks Database`
-- 條件：Done = NO，到期日 ≤ 今天
-- 最多取 15 筆
+**高效抓取方式（避免全表翻頁）：**
+- 「All Tasks」檢視依到期日**升冪**排列且**無 Done 篩選**，全表有數百筆，請**勿**整表翻頁。
+- **直接查詢 `[晨報] 三日任務` 檢視**（已預先過濾 Due Date = 昨天～明天，相對日期，每天自動更新），一次即可取得全部所需資料：
+  - `view_url`：`https://www.notion.so/workspace?v=37bc9c67-1f57-81ce-a2ba-000cd5fc61d1`
+- 回傳為空代表這三天無到期任務，屬正常情形，今日待辦顯示「本區間無到期任務」即可。
+- 萬一該檢視被刪除，改用 `notion-query-database-view` 查「All Tasks」檢視並**只挑出**到期日 ∈ {昨天, 今天, 明天} 的列；一旦讀到的到期日已超過明天即可停止翻頁。
+
+**3a. 昨日完成的任務**（放入「昨日回顧」）
+- 到期日 = 昨天 且 Done = YES
+
+**3b. 今日待辦任務**（放入「今日重點」）
+- 到期日 ∈ {昨天, 今天, 明天} 且 Done = NO
+- 昨天到期且未完成者標記為**逾期**（due-tag 加 `overdue` class）
 
 **3c. WIP 進行中專案**
 - 查詢 `[G] Projects Database`
 - 條件：Status = WIP
 - 最多取 10 筆
+
+**3d. 今日金句（日報結尾的加油鼓勵）**
+
+每天從**名人金句庫**隨機抽一句，放在日報最下方：
+
+- **來源**：資源頁「名人金句與好文章」（id `243c9c671f5780e7826acc41f388b2d4`）
+- 該頁的 `Related to Notes Database` 屬性列有約 20+ 篇 Note；**以日期為隨機種子挑一篇** `fetch`，確保每天不同。
+- 用該 Note 的標題（Note 屬性）作為**金句**、`Tags` 作為**出處作者**；若內文有更完整的中／英全文與署名，優先採用內文版本。
+- **不得偽造或竄改**：只呈現該 Note 實際記錄的金句與出處，缺出處就留空。金句以繁體中文為主。
 
 ### 步驟 4：產生互動式 HTML 並存檔
 
@@ -76,6 +99,8 @@ mkdir -p "$OUTPUT_DIR"
   <title>☀️ 早晨日報｜{YYYY}年{M}月{D}日</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* 根字級放大 → 所有 rem 字級等比例放大，提升閱讀舒適度 */
+    html { font-size: 18px; }
     body {
       background: #F9F5F0;
       color: #3E2115;
@@ -83,7 +108,7 @@ mkdir -p "$OUTPUT_DIR"
       max-width: 1100px;
       margin: 0 auto;
       padding: 28px 16px 60px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
     /* ── Header ── */
     header { text-align: center; margin-bottom: 28px; }
@@ -180,6 +205,25 @@ mkdir -p "$OUTPUT_DIR"
     }
     .top3-action { font-size: 0.9rem; font-weight: 600; color: #F9F5F0; margin-bottom: 4px; }
     .top3-reason { font-size: 0.8rem; color: rgba(249,245,240,0.7); }
+    /* ── 今日金句 ── */
+    .quote-card {
+      background: #fff;
+      border: 1px solid rgba(164,117,81,0.25);
+      border-left: 5px solid #FFD700;
+    }
+    .quote-card .card-body { padding: 24px 28px; text-align: center; }
+    .quote-eyebrow {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
+      color: #A47551; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .quote-text {
+      font-size: 1.25rem; font-weight: 600; line-height: 1.6; color: #3E2115;
+      position: relative; display: inline-block; max-width: 760px;
+    }
+    .quote-text::before { content: "\201C"; color: #FFD700; font-weight: 800; margin-right: 2px; }
+    .quote-text::after  { content: "\201D"; color: #FFD700; font-weight: 800; margin-left: 2px; }
+    .quote-source { margin-top: 10px; font-size: 0.9rem; color: #A47551; font-weight: 600; }
+    .quote-extra { margin-top: 8px; font-size: 0.85rem; color: #A47551; font-style: italic; }
     /* ── Footer ── */
     footer {
       text-align: center; margin-top: 32px;
@@ -321,9 +365,20 @@ mkdir -p "$OUTPUT_DIR"
     </div>
   </section>
 
+  <!-- 今日金句 (span 3) -->
+  <section class="card span-3 quote-card">
+    <div class="card-body">
+      <p class="quote-eyebrow">今日金句</p>
+      <p class="quote-text">{金句內文}</p>
+      <p class="quote-source">— {出處作者}</p>
+      <!-- 若有英文原文或補充，放這行；無則刪除：
+      <p class="quote-extra">{英文原文或補充}</p> -->
+    </div>
+  </section>
+
 </main>
 
-<footer>早安！今天也是充滿可能性的一天。</footer>
+<footer>早安，Rich！今天也是充滿可能性的一天。</footer>
 
 <script>
   const STORAGE_KEY = 'morning-todos-{YYYY-MM-DD}';
@@ -387,6 +442,7 @@ mkdir -p "$OUTPUT_DIR"
 | `{今日待辦清單}` | `.todo-item` div 區塊，id 用任務流水號 `todo-1`、`todo-2`... |
 | `{進行中專案列表}` | `.project-item` div 區塊 |
 | `{行動一～三}` / `{原因一～三}` | 文字直接填入 |
+| `{金句內文}` / `{出處作者}` | 步驟 3d 抽到的金句與作者；無出處則刪除 `.quote-source` 那行 |
 
 ---
 
