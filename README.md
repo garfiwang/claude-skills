@@ -39,6 +39,7 @@
 | [pptx-legal-slide](04-pptx/pptx-legal-slide/SKILL.md) | 法規/判例/新聞排版為單頁 PPTX，適合課程講義 | 法規排版、法規簡報 |
 | [wendashi-pptx](04-pptx/wendashi-pptx/SKILL.md) | 問大師品牌簡報，使用品牌色系自動產生 PPTX | 問大師簡報、品牌簡報 |
 | [newspaper-pptx](04-pptx/newspaper-pptx/SKILL.md) | 新聞報紙排版風格 PPTX，雙欄版面仿《經濟日報》 | 新聞排版、簡報新聞版 |
+| [make-bni-slide](04-pptx/make-bni-slide/SKILL.md) | 製作 BNI 主題簡報，支援 PPTX 簡報與 HTML 網頁簡報雙格式 | 製作 BNI 簡報、做 BNI 簡報 |
 
 ---
 
