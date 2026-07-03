@@ -1,5 +1,6 @@
 ---
 name: pptx-legal-slide
+version: 1.1.0
 description: >
   問大師家族辦公室「簡報法規版」投影片製作技能。當使用者說「簡報法規版」、
   「做一張法規投影片」、「製作判決投影片」、「幫我做法條投影片」、
@@ -7,6 +8,13 @@ description: >
   （深棕 + 金黃 + 米白）製作引用法條或判決的單頁 PPTX 投影片。
   適用場景：引用保險法條文、引用法院判決、引用遺產稅法規、
   引用任何法律條文或司法裁判作為課程教材投影片。
+changelog:
+  - version: 1.1.0
+    date: 2026-07-03
+    note: 新增浮水印啟用/停用選擇功能與浮水印規範說明
+  - version: 1.0.0
+    date: 2026-06-12
+    note: 初始版本
 ---
 
 # 簡報法規版技能
@@ -15,7 +23,7 @@ description: >
 
 製作問大師家族辦公室品牌風格的法規/判決引用類型 PPTX 投影片，版面採用深棕色標題列 + 金色強調 + 米白底色的一貫設計語言。
 
-## 步驟一：收集資訊
+## 步驟一：收集資訊與浮水印確認
 
 若使用者未完整提供以下資訊，依序詢問：
 
@@ -24,8 +32,35 @@ description: >
 3. **條文內容**（1–5 條，每條一個 bullet，可直接貼原文）
 4. **資料來源附註**（底部小字，例如：「* 資料來源：全國法規資料庫」）
 5. **輸出檔名**（建議格式：`問大師_[主題]_[YYYYMMDD].pptx`，例如 `問大師_法院市價判定_20260510.pptx`）
+6. **是否需要背景浮水印**（必須提供選項讓使用者選擇）：
+   - 1. 我要有浮水印
+   - 2. 我不要有浮水印
 
 輸出路徑預設為：`/Users/garfiwang/Documents/Claude/[簡報] 課程使用PPT/`
+
+## 步驟一點五：浮水印圖示設計與排版規範（僅在選擇「我要有浮水印」時執行）
+
+若使用者選擇 **「1. 我要有浮水印」**，必須依循以下規範進行圖示生成與後處理：
+
+### 1. 浮水印圖示生成
+* **提示詞規範**：必須要求「高對比的單色線條設計」。
+* **推薦 Prompt 格式**：
+  > `A minimal, modern flat vector icon showing [主題內容]. The icon is drawn in elegant gold lines (#C9A227) on a solid dark brown square background (#3E2115). High contrast, premium look, clean outline, no text.`
+* **禁用項**：禁止文字、複雜漸層、立體浮雕。
+
+### 2. 圖像後處理與不透明度轉換
+* **自動去背**：使用 Python 腳本（PIL/Numpy）進行色彩過濾，將非金黃色線條的背景像素之 Alpha 值設為 `0`。
+* **色彩與不透明度轉換**：
+  * 將金色線條轉換為品牌文字色 `#3E2115`（RGB: `62, 33, 21`）。
+  * 中央背景浮水印不透明度固定為 **`8%`** (Alpha = `20/255`)，以確保文字閱讀清晰。
+  * 右下角裝飾圖示不透明度固定為 **`12%`** (Alpha = `30/255`)。
+
+### 3. 排版與圖層排序
+* **尺寸**：固定為 **`3.75` x `3.75` 英吋**。
+* **座標**：水平 `Left = 3.125"`，垂直 `Top = 1.40"`（置中於內容區域）。
+* **圖層順序**：必須將浮水印移至**最底層 (Send to Back)**，即在 XML 的 `spTree` 中插入至 index `2`。
+
+---
 
 ## 步驟二：建立投影片 XML
 
@@ -156,6 +191,28 @@ qlmanage -t -s 1200 -o /tmp/ "$OUTPUT_PPTX" 2>/dev/null
         </p:spPr>
         <p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:endParaRPr lang="zh-TW" altLang="en-US"><a:latin typeface="Microsoft JhengHei" panose="020B0604030504040204" pitchFamily="34" charset="-120"/></a:endParaRPr></a:p></p:txBody>
       </p:sp>
+
+      <!-- 浮水印圖示 (僅在選擇「我要有浮水印」時插入於此，作為最底層，注意圖片的 relationship rId 對應) -->
+      <!--
+      <p:pic>
+        <p:nvPicPr>
+          <p:cNvPr id="11" name="Watermark Image"/>
+          <p:cNvPicPr><a:picLocks noChangeAspect="1"/></p:cNvPicPr>
+          <p:nvPr/>
+        </p:nvPicPr>
+        <p:blipFill>
+          <a:blip r:embed="rId2"/>
+          <a:stretch><a:fillRect/></a:stretch>
+        </p:blipFill>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="2857500" y="1280160"/>
+            <a:ext cx="3429000" cy="3429000"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect"><a:avLst/></a:prstGeom>
+        </p:spPr>
+      </p:pic>
+      -->
 
       <!-- 標題文字 -->
       <p:sp>
