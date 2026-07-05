@@ -1,12 +1,18 @@
 ---
 name: weekly-report
+version: 1.1.0
 description: >
   產生每週進度報告 HTML。查詢 Google Calendar 行程、Notion Tasks/Projects 資料庫，
   彙整本週總覽、上週回顧、待辦任務與進行中專案。
   觸發條件：使用者輸入「每週報告」、「每週進度報告」、「weekly report」。
 ---
 
-# 每週進度報告技能
+# 每週進度報告技能 (v1.1.0)
+
+> **版本變動紀錄 (v1.1.0)**：
+> - **版面排版欄位對調**：
+>   - 將「本週行程」與「上週回顧」欄位與寬度對調，「本週行程」移至左側大欄 (`span-2`)，「上週回顧」移至右側小欄。
+>   - 將「待辦任務」與「進行中專案」欄位與寬度對調，「待辦任務」移至左側大欄 (`span-2`)，「進行中專案」移至右側小欄。
 
 當使用者輸入「**每週報告**」、「**每週進度報告**」、「**weekly report**」時，執行以下步驟。
 
@@ -59,7 +65,7 @@ OUTPUT_DIR="${MORNING_BRIEFING_DIR:-$HOME/晨間早報}"
 ```
 
 但本技能使用固定路徑（可覆寫環境變數 `WEEKLY_REPORT_DIR`）：
-- 預設：`$HOME/Documents/Opencode-2026/每週報告/`
+- 預設：`$HOME/Documents/每週報告/`
 - 檔名：`YYYY-MM-DD.html`（如 `2026-06-04.html`）
 
 產生後回報使用者：「✅ 每週進度報告已存至 {路徑}」
@@ -229,16 +235,6 @@ OUTPUT_DIR="${MORNING_BRIEFING_DIR:-$HOME/晨間早報}"
 
   <section class="card span-2">
     <div class="card-header" onclick="toggleCard(this)">
-      <h2>📅 上週回顧（{上週日期範圍}）</h2>
-      <span class="toggle-icon">▾</span>
-    </div>
-    <div class="card-body">
-      {上週每日行程}
-    </div>
-  </section>
-
-  <section class="card">
-    <div class="card-header" onclick="toggleCard(this)">
       <h2>📆 本週行程（{本週日期範圍}）</h2>
       <span class="toggle-icon">▾</span>
     </div>
@@ -247,23 +243,33 @@ OUTPUT_DIR="${MORNING_BRIEFING_DIR:-$HOME/晨間早報}"
     </div>
   </section>
 
-  <section class="card span-2">
+  <section class="card">
     <div class="card-header" onclick="toggleCard(this)">
-      <h2>🚀 進行中專案 <span class="count-badge">{WIP數}</span></h2>
+      <h2>📅 上週回顧（{上週日期範圍}）</h2>
       <span class="toggle-icon">▾</span>
     </div>
     <div class="card-body">
-      {WIP專案列表}
+      {上週每日行程}
     </div>
   </section>
 
-  <section class="card">
+  <section class="card span-2">
     <div class="card-header" onclick="toggleCard(this)">
       <h2>✅ 待辦任務 <span class="count-badge">{待辦數}</span></h2>
       <span class="toggle-icon">▾</span>
     </div>
     <div class="card-body">
       {待辦任務列表}
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h2>🚀 進行中專案 <span class="count-badge">{WIP數}</span></h2>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body">
+      {WIP專案列表}
     </div>
   </section>
 
