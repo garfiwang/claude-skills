@@ -41,6 +41,12 @@
 | [newspaper-pptx](04-pptx/newspaper-pptx/SKILL.md) | 新聞報紙排版風格 PPTX，雙欄版面仿《經濟日報》 | 新聞排版、簡報新聞版 |
 | [make-bni-slide](04-pptx/make-bni-slide/SKILL.md) | 製作 BNI 主題簡報，支援 PPTX 簡報與 HTML 網頁簡報雙格式 | 製作 BNI 簡報、做 BNI 簡報 |
 
+### 🌐 05 · HTML 互動簡報
+
+| Skill | 說明 | 觸發關鍵字 |
+|---|---|---|
+| [html-slide-builder](05-html-slides/html-slide-builder/SKILL.md) | 適合 100 吋大螢幕與 70 歲樂齡學員觀看的大字版 Reveal.js HTML 互動簡報 | 幫我做 HTML 簡報、做成投影片、做 Reveal.js 簡報 |
+
 ---
 
 ## 安裝方式
@@ -48,8 +54,8 @@
 在 Claude Code 中執行：
 
 ```bash
-# 安裝單一 skill（以 image-prompt-wizard 為例）
-claude skills add garfiwang/claude-skills --path 01-content-creation/image-prompt-wizard
+# 安裝單一 skill（以 html-slide-builder 為例）
+claude skills add garfiwang/claude-skills --path 05-html-slides/html-slide-builder
 
 # 安裝其他 skill（以 storytelling-7steps 為例）
 claude skills add garfiwang/claude-skills --path 01-content-creation/storytelling-7steps
@@ -120,4 +126,5 @@ changelog:              # ← 由新到舊，每次升級加一筆
 
 ---
 
-*Last updated: 2026-06-12*
+*Last updated: 2026-07-31*
+
