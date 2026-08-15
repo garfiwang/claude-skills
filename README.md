@@ -16,6 +16,7 @@
 | [fb-long-post](01-content-creation/fb-long-post/SKILL.md) | 高流量 FB 長文，信託/保險/退休規劃主題 | 寫 FB 長文、FB 文章 |
 | [threads-post](01-content-creation/threads-post/SKILL.md) | Threads 每日短文，品牌聲量維持 | 寫 Threads、今日 Threads |
 | [image-prompt-wizard](01-content-creation/image-prompt-wizard/README.md) | AI 繪圖 Prompt 生成嚮導，三種模式輸出結構化英文 Prompt ＋ 中文說明 | 圖片提示詞、image prompt、生成圖片 Prompt |
+| [speak-human-tw](01-content-creation/speak-human-tw/README.md) | 繁體中文去 AI 味改寫：抓 38 種 AI 寫作痕跡，校正中國用語與半形標點 | 去 AI 味、說人話、幫說人話、檢查是否有 AI 味 |
 
 ### ⚡ 02 · 生產力自動化
 
@@ -126,5 +127,5 @@ changelog:              # ← 由新到舊，每次升級加一筆
 
 ---
 
-*Last updated: 2026-07-31*
+*Last updated: 2026-08-15*
 
