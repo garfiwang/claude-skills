@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
+  <title>守株待兔？台商上億定存資金配置迷思與解方｜商業周刊專欄</title>
+  <meta name="description" content="富拉凱投資銀行董事長劉芳榮專欄：台商上億元人民幣定存不分配利潤，苦等匯率升值的利差陷阱與黑天鵝時代的雙邊資金配置策略。" />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="守株待兔？台商上億定存資金配置迷思與解方" />
+  <meta property="og:description" content="富拉凱投資銀行董事長劉芳榮深度剖析：大陸定存跌破1% vs 海外美元4%~5%，中小台商如何打破守株待兔思維進行兩岸資金配置。" />
+  
+  <!-- Google Fonts & Libraries -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#C8102E',
+              darkred: '#990B22',
+              navy: '#1E3A8A',
+              darknavy: '#0F172A',
+              gold: '#D97706',
+              paper: '#FAF7F2'
+            }
+          },
+          fontFamily: {
+            sans: ['Noto Sans TC', 'sans-serif'],
+            serif: ['Noto Serif TC', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #0B0F19;
+      color: #F8FAFC;
+    }
+
+    /* 滾動條美化 */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(200, 16, 46, 0.4);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(200, 16, 46, 0.8);
+    }
+
+    /* Swiper 自訂樣式 */
+    .mobile-slide-content {
+      height: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 1.5rem 1.25rem 2rem 1.25rem;
+    }
+
+    .swiper-pagination-bullet {
+      background: rgba(255, 255, 255, 0.35);
+      opacity: 1;
+      width: 7px;
+      height: 7px;
+      transition: all 0.3s ease;
+    }
+    .swiper-pagination-bullet-active {
+      background: #F59E0B !important;
+      width: 24px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-red-500 selection:text-white">
+
+  <!-- ─── 頂部導覽列 (Navbar) ─── -->
+  <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 px-4 py-3 sm:px-6">
+    <div class="max-w-4xl mx-auto flex items-center justify-between gap-3">
+      
+      <!-- 品牌與標題 -->
+      <div class="flex items-center space-x-3">
+        <span class="inline-flex items-center justify-center px-2.5 py-1 text-xs font-black tracking-wider bg-red-600 text-white rounded shadow-sm">
+          商業周刊
+        </span>
+        <div>
+          <h1 class="text-sm sm:text-base font-bold text-slate-100 flex items-center gap-1.5 line-clamp-1">
+            <span>阿榮看台商：守株待兔？</span>
+            <span class="hidden sm:inline text-xs text-slate-400 font-normal">｜台商資金配置迷思</span>
+          </h1>
+          <p class="text-[11px] text-slate-400 hidden sm:block">專欄作者：富拉凱投資銀行董事長 劉芳榮</p>
+        </div>
+      </div>
+
+      <!-- 視圖切換標籤 (2 種清晰模式) -->
+      <div class="bg-slate-800/90 p-1 rounded-xl flex text-xs font-bold border border-slate-700 shadow-inner">
+        <button id="tab-mobile-slide" onclick="switchMainView('slide')" class="px-3 py-1.5 rounded-lg transition-all text-white bg-red-600 shadow flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+          <span>重點速讀</span>
+        </button>
+        <button id="tab-article" onclick="switchMainView('article')" class="px-3 py-1.5 rounded-lg transition-all text-slate-300 hover:text-white flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+          <span>全文閱讀</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ════════════════════ 模式 1：重點速讀滑動卡片 (Slide Deck View) ════════════════════ -->
+  <main id="view-mobile-slide" class="flex-1 flex flex-col items-center justify-center h-[calc(100vh-62px)] w-full overflow-hidden bg-slate-950">
+    
+    <div class="w-full max-w-lg h-full flex flex-col bg-slate-900/60 sm:border-x sm:border-slate-800 shadow-2xl relative">
+      
+      <!-- 頂部卡片計數與標題指示 -->
+      <div class="flex items-center justify-between px-4 py-2.5 bg-slate-900 border-b border-slate-800 text-xs text-slate-300 shrink-0">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+          <span class="font-bold tracking-wider text-slate-200">阿榮看台商焦點速讀</span>
+        </div>
+        <div id="mobile-page-indicator" class="font-mono font-bold text-amber-400 bg-amber-500/15 px-2.5 py-0.5 rounded-full border border-amber-500/30">
+          1 / 6
+        </div>
+      </div>
+
+      <!-- Swiper 滑動容器 -->
+      <div class="swiper mobileSwiper flex-1 w-full h-full">
+        <div class="swiper-wrapper">
+          
+          <!-- Slide 1: 封面與案例背景 -->
+          <div class="swiper-slide bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950">
+            <div class="mobile-slide-content flex flex-col justify-between">
+              <div class="space-y-4">
+                <div class="inline-flex items-center gap-2">
+                  <span class="bg-red-600 text-white text-xs font-black px-3 py-1 rounded">商業周刊 2018 期</span>
+                  <span class="bg-blue-900 text-white text-xs font-bold px-2.5 py-1 rounded">2026.7 P.20</span>
+                </div>
+                
+                <h2 class="font-serif text-3xl sm:text-4xl font-black text-white leading-tight">
+                  守株待兔？<br>
+                  <span class="text-amber-400 text-2xl sm:text-3xl">台商上億定存不分紅的迷思</span>
+                </h2>
+                
+                <div class="text-sm text-slate-300 flex items-center gap-2 border-b border-slate-800 pb-3">
+                  <span>● 來自兩岸第一線的台商進退判斷</span>
+                </div>
+                
+                <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 space-y-2">
+                  <div class="text-xs font-bold text-red-400 uppercase tracking-wider flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+                    <span>真實台商案例</span>
+                  </div>
+                  <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+                    一家台商財報上定存了<strong>上億元人民幣現金</strong>，好幾年不分配利潤。老闆說「家裡不缺錢」，其實是在<strong>守株待兔</strong>，苦等人民幣回到 1 美元兌 6.5 元的美好年代！
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-6 pb-1 text-center text-xs text-slate-400 flex items-center justify-center gap-1.5">
+                <span>👈 向左滑動看分析</span>
+                <span class="text-amber-400 font-bold">•</span>
+                <span>按下方按鈕翻頁 👉</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: 守株待兔的利差盲點 -->
+          <div class="swiper-slide bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950">
+            <div class="mobile-slide-content space-y-4">
+              <span class="text-xs font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/30 inline-block">
+                核心盲點 01
+              </span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-black text-white leading-snug">
+                別只盯匯率，<br><span class="text-red-400">利率也得考慮進去！</span>
+              </h3>
+
+              <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 space-y-3">
+                <div class="flex items-start gap-2.5">
+                  <span class="text-red-400 font-bold text-lg leading-none mt-1">●</span>
+                  <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+                    上次人民幣 6.5 元是在疫情末期的 2022 年上半年。之後因美國大幅升息，人民幣開始貶值。
+                  </p>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <span class="text-red-400 font-bold text-lg leading-none mt-1">●</span>
+                  <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+                    這世上沒有「匯率專家」，官方干涉與市場力量瞬息萬變。
+                  </p>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <span class="text-red-400 font-bold text-lg leading-none mt-1">●</span>
+                  <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+                    雖然近期人民幣回升到 6.8 元，但<strong>單押定存乾等升值，代價是每年白白損失 3%~4% 的巨額利差！</strong>
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl bg-red-950/40 border border-red-500/30 text-red-200 text-xs sm:text-sm leading-relaxed">
+                💡 <strong>劉芳榮提醒：</strong>把資金全押在單邊大陸定存，夢想更高升值匯差，肯定不是最大利益！
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: 兩岸定存收益懸殊數據 -->
+          <div class="swiper-slide bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950">
+            <div class="mobile-slide-content space-y-4">
+              <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-full border border-blue-500/30 inline-block">
+                數據對比 02
+              </span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-black text-white">
+                兩岸收益懸殊對比
+              </h3>
+
+              <div class="space-y-3">
+                <div class="bg-slate-800/90 p-3.5 sm:p-4 rounded-xl border border-slate-700 flex items-center justify-between">
+                  <div>
+                    <div class="text-xs text-slate-400 font-medium">大陸人民幣 1 年期定存</div>
+                    <div class="text-sm sm:text-base font-bold text-slate-200">全押單邊境內定存</div>
+                  </div>
+                  <div class="text-2xl sm:text-3xl font-black text-slate-400 font-serif">＜ 1.0%</div>
+                </div>
+
+                <div class="bg-red-950/40 p-3.5 sm:p-4 rounded-xl border border-red-500/40 flex items-center justify-between">
+                  <div>
+                    <div class="text-xs text-red-300 font-medium">海外美元 1 年期定存</div>
+                    <div class="text-sm sm:text-base font-bold text-white">高流動性、穩定收息</div>
+                  </div>
+                  <div class="text-2xl sm:text-3xl font-black text-red-400 font-serif">約 4.0%+</div>
+                </div>
+
+                <div class="bg-blue-950/40 p-3.5 sm:p-4 rounded-xl border border-blue-500/40 flex items-center justify-between">
+                  <div>
+                    <div class="text-xs text-blue-300 font-medium">海外債券級理財產品</div>
+                    <div class="text-sm sm:text-base font-bold text-white">優質固定收益與全球避險</div>
+                  </div>
+                  <div class="text-2xl sm:text-3xl font-black text-blue-400 font-serif">＞ 5.0%+</div>
+                </div>
+              </div>
+
+              <div class="p-3.5 bg-amber-500/10 border border-amber-500/30 rounded-xl text-amber-300 text-xs sm:text-sm leading-relaxed">
+                💰 <strong>利差真相：</strong>境內外利差高達 3%～4% 以上，單邊乾等匯率，每年將錯失數百萬現金流收益！
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: 反常時代黑天鵝 -->
+          <div class="swiper-slide bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950">
+            <div class="mobile-slide-content space-y-4">
+              <span class="text-xs font-bold text-red-400 bg-red-500/10 px-2.5 py-1 rounded-full border border-red-500/30 inline-block">
+                市場反常 03
+              </span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-black text-white leading-snug">
+                黑天鵝亂飛，<br><span class="text-amber-400">市場不按劇本演！</span>
+              </h3>
+
+              <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 space-y-3.5 text-sm sm:text-base">
+                <div class="flex items-start gap-2.5">
+                  <span class="text-lg">🇨🇳</span>
+                  <p class="text-slate-200 leading-relaxed">
+                    <strong>大陸人行降息再降息</strong>，人民幣兌美元卻一路反向升值。
+                  </p>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <span class="text-lg">🇯🇵</span>
+                  <p class="text-slate-200 leading-relaxed">
+                    <strong>日本央行升息至 1%</strong>（創 31 年新高），日圓卻暴跌破 40 年最低至 160 多日圓水準。
+                  </p>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <span class="text-lg">⚠️</span>
+                  <p class="text-slate-200 leading-relaxed">
+                    當利率高低與匯率走勢脫鉤，經濟風險正在急遽升高！
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-3.5 bg-slate-900 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-300 leading-relaxed italic">
+                「當經濟發展偏離正常經濟邏輯，當大家都不按劇本演，經濟風險怎麼會不高？」
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5: 中小台商三大行動方針 -->
+          <div class="swiper-slide bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950">
+            <div class="mobile-slide-content space-y-4">
+              <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/30 inline-block">
+                行動指南 04
+              </span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-black text-white">
+                中小台商資金配置 3 大方針
+              </h3>
+
+              <div class="space-y-3">
+                <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700 flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</div>
+                  <div>
+                    <div class="font-bold text-slate-100 text-sm sm:text-base">安全與流動性擺首位</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-0.5">資金重點永遠是降低與分散風險，切忌投機猜匯率。</div>
+                  </div>
+                </div>
+
+                <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700 flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</div>
+                  <div>
+                    <div class="font-bold text-slate-100 text-sm sm:text-base">至少分配一半資金到境外</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-0.5">以美元形式持有，穩定享有海外 4%~5% 優質無風險利息。</div>
+                  </div>
+                </div>
+
+                <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700 flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-amber-600 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</div>
+                  <div>
+                    <div class="font-bold text-slate-100 text-sm sm:text-base">兼享兩岸雙邊抗風險優勢</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-0.5">境內外雙邊配置，兼具調度防禦力與穩定收益。</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6: 專家核心總結 -->
+          <div class="swiper-slide bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950">
+            <div class="mobile-slide-content flex flex-col justify-between space-y-4">
+              <div class="space-y-4">
+                <span class="text-xs font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/30 inline-block">
+                  專家金句
+                </span>
+                
+                <div class="bg-red-950/40 border border-red-500/40 p-5 rounded-2xl shadow-lg">
+                  <p class="text-slate-100 font-serif text-sm sm:text-base leading-relaxed">
+                    「別把雞蛋都放在同一個籃子裡！公司對資金的安排，起碼可以分配一半資金到境外以美元形式持有，加總大陸境內外的雙邊好處，絕對會超過『守株待兔』乾等人民幣升值的收益。」
+                  </p>
+                  <div class="mt-3 text-right text-xs sm:text-sm font-bold text-amber-400">
+                    —— 富拉凱投資銀行董事長 劉芳榮
+                  </div>
+                </div>
+
+                <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 text-xs sm:text-sm text-slate-300 space-y-2">
+                  <div class="font-bold text-white text-sm">💡 總結精髓：</div>
+                  <p>1. 避免單押境內定存，打破守株待兔盲點。</p>
+                  <p>2. 善用海外美元高利息與高流動性優勢。</p>
+                  <p>3. 建立境內外雙邊資產防禦，降低系統性風險。</p>
+                </div>
+              </div>
+
+              <div class="text-center text-xs text-slate-500 pt-3">
+                商業周刊 2018 期 2026.7 ｜ 阿榮看台商專欄 P.20
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+        <!-- Swiper Pagination -->
+        <div class="swiper-pagination py-2 shrink-0"></div>
+      </div>
+
+      <!-- 底部控制按鈕列 (上一頁 / 下一頁) -->
+      <div class="flex items-center justify-between px-4 py-2.5 bg-slate-900 border-t border-slate-800 shrink-0">
+        <button id="btn-prev" class="px-3.5 py-1.5 rounded-lg bg-slate-800 text-slate-200 hover:bg-slate-700 text-xs font-bold transition flex items-center gap-1">
+          <span>‹ 上一頁</span>
+        </button>
+        <span class="text-[11px] text-slate-400">左右滑動 • 可上下滾動</span>
+        <button id="btn-next" class="px-3.5 py-1.5 rounded-lg bg-amber-500 text-slate-950 hover:bg-amber-400 text-xs font-black transition flex items-center gap-1 shadow-md shadow-amber-500/20">
+          <span>下一頁 ›</span>
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- ════════════════════ 模式 2：全文長文閱讀模式 (Full Article Mode) ════════════════════ -->
+  <section id="view-article" class="hidden flex-1 py-8 px-4 sm:px-6 max-w-3xl mx-auto w-full">
+    
+    <div class="bg-white text-slate-900 rounded-2xl shadow-2xl p-6 sm:p-10 border border-slate-200">
+      
+      <!-- 專欄標頭 -->
+      <div class="border-b-2 border-slate-900 pb-5 mb-6">
+        <div class="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-bold text-slate-600 mb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="bg-red-600 text-white px-2.5 py-0.5 rounded">商業周刊 2018 期</span>
+            <span class="bg-blue-900 text-white px-2.5 py-0.5 rounded">阿榮看台商</span>
+          </div>
+          <div>2026 年 7 月刊登 ｜ P.20</div>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-2">
+          守株待兔？
+        </h2>
+        <div class="text-slate-600 font-bold text-sm sm:text-base flex items-center gap-2">
+          <span>● 來自兩岸第一線的台商進退判斷</span>
+          <span>｜</span>
+          <span class="text-blue-900">專欄作者：富拉凱投資銀行董事長 劉芳榮</span>
+        </div>
+      </div>
+
+      <!-- 正文內容 (100% 原始文字逐字收錄) -->
+      <article class="prose prose-lg max-w-none text-slate-800 text-[18px] sm:text-[19.5px] leading-[1.9] space-y-6 text-justify">
+        
+        <p class="indent-8">
+          一家台商的財務報表上竟定存了上億元人民幣現金，後來才知道，公司有好幾年沒分配利潤。
+        </p>
+
+        <p class="indent-8">
+          我問身為股東的老闆，為何不分配利潤？讓資金回到境外？老闆開玩笑說，因為家裡不缺錢⋯⋯
+        </p>
+
+        <p class="indent-8">
+          說穿了，不是不缺錢，是老闆在<strong class="text-red-600 font-black">「守株待兔」</strong>，想等人民幣升值，看能不能回到一美元兌換人民幣六．五元的美好年代，上次一美元兌換人民幣六．五元是在疫情末期的二〇二二年上半年，後來因美國大幅升息，造成人民幣下半年開始貶值。
+        </p>
+
+        <p class="indent-8">
+          這世上沒有「匯率」專家，因為除了官方會干涉外，市場對匯率升貶的影響更大，所以我不敢質疑老闆的英明，但我提醒老闆，雖然最近這一年人民幣匯率已升值到六．八元左右，但他<strong class="text-slate-950 font-black underline decoration-red-500 decoration-2">不能只看匯率，利率也得考慮進去</strong>。
+        </p>
+
+        <div class="my-6 p-5 rounded-xl bg-slate-50 border-l-4 border-blue-900 border border-slate-200">
+          <div class="font-bold text-blue-950 text-sm mb-1">📊 專欄關鍵數據：兩岸定存與理財利率比較</div>
+          <ul class="list-disc list-inside text-sm text-slate-700 space-y-1 font-medium">
+            <li>大陸人民幣一年期定存：<strong>降至 1% 以下</strong></li>
+            <li>海外美元一年期定存：<strong>維持在 4% 以上水準</strong></li>
+            <li>海外債券級理財產品：<strong>報酬率超過 5%</strong></li>
+          </ul>
+        </div>
+
+        <p class="indent-8">
+          目前大陸人民幣一年期定存利率已降到一％以下，反觀海外美元定存利率還有四％以上的水準，若是債券級別的理財產品，報酬率甚至有超過五％，再加上其他如流動性、地緣政治風險等考量，老闆把資金全押在單邊的大陸人民幣定存，夢想著更高的人民幣升值匯差，<strong class="text-red-600 font-black">肯定不是最大利益</strong>。
+        </p>
+
+        <p class="indent-8">
+          但我也不鼓勵老闆把錢全匯到境外，我只是想提醒老闆那句老話，<strong class="text-red-600 font-black">「別把雞蛋都放在同一個籃子裡」</strong>，因為除了川普、普欽、納坦雅胡這幾隻大天鵝外，眼下還有更多經濟黑天鵝到處亂飛，看看大陸人民銀行，這都已經降息再降息了，人民幣兌換美元還是一路升值；日本再零利率，要把基準利率拉升至一％，創了三十一年來的新高紀錄，但日圓就是不給面子，活生生跌到四十多年最低的一美元兌換一百六十多日圓水準。
+        </p>
+
+        <p class="indent-8">
+          當經濟發展偏離正常經濟邏輯，代表經濟風險逐漸升高，貨幣利率降低，市場應拋售貨幣形成貶值，反之，當利率越高，貨幣應升值才對，但很明顯人民幣和日圓都選擇走自己的路，不走經濟學老路，<strong class="text-slate-950 font-black">當大家都不按劇本演，經濟風險怎麼會不高？</strong>
+        </p>
+
+        <p class="indent-8">
+          對中小台商來說，資金重點永遠是<strong class="text-slate-950 font-black">降低風險、分散風險</strong>，因此，公司對資金的安排應以<strong class="text-red-600 font-black">安全性和流動性擺在首位</strong>，先別想那些匯差或利差的報酬率問題，我建議老闆，<strong class="text-blue-900 font-black underline decoration-red-500 decoration-2">起碼可以分配一半資金到境外，以美元形式持有</strong>，如此一來，加總大陸境內外的雙邊，兼有等待無形好處，絕對會超過「守株待兔」，乾等人民幣升值的收益。<span class="text-red-600 font-black text-xl">■</span>
+        </p>
+
+        <div class="pt-4 text-sm text-slate-500 font-semibold text-right">
+          (本專欄每月刊登)
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- ─── 頁尾版權資訊 ─── -->
+  <footer class="bg-slate-900 border-t border-slate-800 py-4 px-4 text-center text-xs text-slate-400">
+    <p>商業周刊 2018 期 2026.7 專欄《守株待兔？》｜ 作者：劉芳榮（富拉凱投資銀行董事長）</p>
+    <p class="text-[11px] text-slate-500 mt-1">問大師家族辦公室 ‧ 重新排版與數位化發布</p>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // 視圖切換
+    function switchMainView(view) {
+      const slideView = document.getElementById('view-mobile-slide');
+      const articleView = document.getElementById('view-article');
+      const tabSlide = document.getElementById('tab-mobile-slide');
+      const tabArticle = document.getElementById('tab-article');
+
+      if (view === 'slide') {
+        slideView.classList.remove('hidden');
+        articleView.classList.add('hidden');
+        tabSlide.className = "px-3 py-1.5 rounded-lg transition-all text-white bg-red-600 shadow flex items-center gap-1.5";
+        tabArticle.className = "px-3 py-1.5 rounded-lg transition-all text-slate-300 hover:text-white flex items-center gap-1.5";
+      } else if (view === 'article') {
+        slideView.classList.add('hidden');
+        articleView.classList.remove('hidden');
+        tabArticle.className = "px-3 py-1.5 rounded-lg transition-all text-white bg-red-600 shadow flex items-center gap-1.5";
+        tabSlide.className = "px-3 py-1.5 rounded-lg transition-all text-slate-300 hover:text-white flex items-center gap-1.5";
+      }
+    }
+
+    // 初始化 Swiper
+    const mobileSwiper = new Swiper(".mobileSwiper", {
+      direction: "horizontal",
+      loop: false,
+      speed: 350,
+      pagination: { el: ".swiper-pagination", clickable: true },
+      keyboard: { enabled: true },
+      on: {
+        slideChange: function () {
+          const total = this.slides.length;
+          const current = this.activeIndex + 1;
+          document.getElementById('mobile-page-indicator').textContent = `${current} / ${total}`;
+          document.getElementById('btn-prev').style.opacity = current === 1 ? '0.35' : '1';
+          document.getElementById('btn-next').textContent = current === total ? '回到首頁 ↺' : '下一頁 ›';
+        }
+      }
+    });
+
+    document.getElementById('btn-prev').addEventListener('click', () => mobileSwiper.slidePrev());
+    document.getElementById('btn-next').addEventListener('click', () => {
+      if (mobileSwiper.activeIndex === mobileSwiper.slides.length - 1) mobileSwiper.slideTo(0);
+      else mobileSwiper.slideNext();
+    });
+  </script>
+</body>
+</html>

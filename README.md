@@ -47,6 +47,7 @@
 | Skill | 說明 | 觸發關鍵字 |
 |---|---|---|
 | [html-slide-builder](05-html-slides/html-slide-builder/SKILL.md) | 適合 100 吋大螢幕與 70 歲樂齡學員觀看的大字版 Reveal.js HTML 互動簡報 | 幫我做 HTML 簡報、做成投影片、做 Reveal.js 簡報 |
+| [article-card-page](05-html-slides/article-card-page/SKILL.md) | 專欄新聞速讀網頁：自動重構為「手機優先滑動卡片 ＋ 全文閱讀」雙模式發布網頁 | 專欄排版、專欄文章排版、精選文章排版、文章排版、文章轉網頁、做成重點速讀網頁 |
 
 ---
 
