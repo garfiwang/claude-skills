@@ -1,6 +1,12 @@
 ---
 name: threads-post
-description: 為 Rich（信託規劃專家、問大師家族辦公室創辦人）生成適合 Threads 的每日短文。當使用者說「寫 Threads 文章」「生成今日 Threads」「短文版」「寫一則 Threads」，立即觸發本技能。
+version: 1.0.0
+description: >
+  為 Rich（信託規劃專家、問大師家族辦公室創辦人）生成適合 Threads 的每日短文。當使用者說「寫 Threads 文章」「生成今日 Threads」「短文版」「寫一則 Threads」，立即觸發本技能。
+changelog:
+  - version: 1.0.0
+    date: 2026-07-05
+    note: 初始版本
 ---
 
 # Threads 每日短文技能（Rich 專屬版）

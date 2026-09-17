@@ -1,12 +1,18 @@
 ---
 name: weekly-report
 version: 1.1.0
-description: >
-  產生每週進度報告 HTML。查詢 Google Calendar 行程、Notion Tasks/Projects 資料庫，
-  彙整本週總覽、上週回顧、待辦任務與進行中專案。
+description: '產生每週進度報告 HTML。查詢 Google Calendar 行程、Notion Tasks/Projects 資料庫， 彙整本週總覽、上週回顧、待辦任務與進行中專案。
   觸發條件：使用者輸入「每週報告」、「每週進度報告」、「weekly report」。
----
 
+  '
+changelog:
+- version: 1.1.0
+  date: '2026-07-10'
+  note: 支援 Google Calendar 與 Notion Tasks 自動整合並產出互動式 HTML 週報
+- version: 1.0.0
+  date: '2026-06-15'
+  note: 初始版本
+---
 # 每週進度報告技能 (v1.1.0)
 
 > **版本變動紀錄 (v1.1.0)**：

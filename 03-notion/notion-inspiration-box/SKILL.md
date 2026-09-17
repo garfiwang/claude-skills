@@ -1,6 +1,12 @@
 ---
 name: notion-inspiration-box
-description: 將靈感、想法、資訊快速儲存到使用者的 Notion 靈感收集資料盒。當使用者說「存靈感」、「記錄一下」、「幫我存到 Notion」、「靈感：」、「想法：」、「記下來」，或任何想把內容儲存到 Notion 的情境，一律使用此 skill。即使使用者只說「靈感：xxx」也應觸發。
+version: 1.0.0
+description: >
+  將靈感、想法、資訊快速儲存到使用者的 Notion 靈感收集資料盒。當使用者說「存靈感」、「記錄一下」、「幫我存到 Notion」、「靈感：」、「想法：」、「記下來」，或任何想把內容儲存到 Notion 的情境，一律使用此 skill。即使使用者只說「靈感：xxx`」也應觸發。
+changelog:
+  - version: 1.0.0
+    date: 2026-07-05
+    note: 初始版本
 ---
 
 # Notion 靈感收集資料盒

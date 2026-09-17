@@ -1,3 +1,15 @@
+---
+name: transcript-to-notion
+version: 1.0.0
+description: |
+  將演講/課程逐字稿（.md）自動清理、整理，寫入 Notion [G] Note database，並關聯至 Areas Database（[CC] 財富流）與 Resources Database（財富流教練包）。
+  當使用者說「幫我整理這份逐字稿」、「寫入 notion」、「逐字稿整理」、「transcript to notion」，或提供 .md 逐字稿檔案路徑時觸發。
+changelog:
+  - version: 1.0.0
+    date: 2026-07-05
+    note: 初始版本
+---
+
 # Transcript to Notion — 逐字稿整理與寫入 Notion 技能
 
 ## Description

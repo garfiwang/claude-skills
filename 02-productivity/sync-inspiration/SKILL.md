@@ -1,3 +1,15 @@
+---
+name: sync-inspiration
+version: 1.0.0
+description: |
+  同步靈感盒 Clippings 到 Notion。
+  當使用者說「同步靈感盒」、「sync 靈感盒」、「同步 clippings」時立即執行。
+changelog:
+  - version: 1.0.0
+    date: 2026-07-05
+    note: 初始版本
+---
+
 # 同步靈感盒 Skill
 
 ## 觸發條件

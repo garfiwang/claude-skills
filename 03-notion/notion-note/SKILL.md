@@ -1,9 +1,14 @@
 ---
 name: notion-note
+version: 1.0.0
 description: >
   將任意內容（文章、筆記、想法、靈感、新聞摘要等）新增到 Rich 的 Notion Note 資料庫，自動命名頁面並填寫欄位。
   當使用者說「加入notion資料庫note」、「存到notion」、「加入note」、「記錄到notion」、「存進notion筆記」時，一律使用此 skill。
   即使使用者只貼上一段文字並說「加入notion」也應觸發。
+changelog:
+  - version: 1.0.0
+    date: 2026-07-05
+    note: 初始版本
 ---
 
 # 加入 Notion Note 資料庫
